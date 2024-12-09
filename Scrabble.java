@@ -70,7 +70,7 @@ public class Scrabble {
 			score+=1000;
 		}
 		for(int i=0;i<word.length();i++){
-			score+=SCRABBLE_LETTER_VALUES[word.charAt(i)-97];
+			score+=(SCRABBLE_LETTER_VALUES[word.charAt(i)-97]*word.length());
 		}
 		return score;
 	}
@@ -106,23 +106,28 @@ public class Scrabble {
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
 			//break;
-			if(isWordInDictionary(input)){
+			if(input.equals(".")){
+				System.out.println("End of hand. Total score: " + score + " points");
+			//	n=0;
+				return;
+			}
+			else {if(isWordInDictionary(input)){
 			hand=MyString.remove(hand, input);
+			n=hand.length();
 			score+=wordScore(input);
 			System.out.println(input+" earned "+wordScore(input)+" points. Score: "+score+" points");
 			}
-			if(input.equals("."))
-			break;
-			else System.out.println("Invalid word. Try again.");
+			else {
+				System.out.println("Invalid word. Try again.");
+			}
             //n = hand.length();
-		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
-		} else {
-			System.out.println("End of hand. Total score: " + score + " points");
-			playGame();
-
 		}
+	    }
+	 } //else {
+			//System.out.println("End of hand. Total score: " + score + " points");
+		//}
 	}
 
 	// Plays a Scrabble game. Prompts the user to enter 'n' for playing a new hand, or 'e'
@@ -142,10 +147,9 @@ public class Scrabble {
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
 			if (input.equals("e")) {
-				break;
+				return;
 			} 
-			else{
-				if (input.equals("n")) {
+			else {if (input.equals("n")) {
 				playHand(createHand());;
 			} 
 			else
@@ -154,19 +158,20 @@ public class Scrabble {
 				}
 			}
 		}
+		}
 			//// Replace the following break statement with code
 			//// that completes the game playing loop
-	      	//break;
-		}
+	      	//break;.
+
 
 
 	public static void main(String[] args) {
-		//// Uncomment the test you want to run
-		//testBuildingTheDictionary();  
-		//testScrabbleScore();    
-		//testCreateHands();  
-		//testPlayHands();
-		//playGame();
+		// Uncomment the test you want to run
+		testBuildingTheDictionary();  
+		testScrabbleScore();    
+		testCreateHands();  
+		testPlayHands();
+		playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
