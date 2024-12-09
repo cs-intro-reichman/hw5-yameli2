@@ -106,28 +106,27 @@ public class Scrabble {
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
 			//break;
-			if(input.equals(".")){
+			if(input.equals("."))
+			{
 				System.out.println("End of hand. Total score: " + score + " points");
-			//	n=0;
 				break;
 			}
-			else {if(isWordInDictionary(input)){
+			else {
+			if(MyString.subsetOf(input, hand)){
+			 if(isWordInDictionary(input)){
 			hand=MyString.remove(hand, input);
-			//n=hand.length();
 			score+=wordScore(input);
 			System.out.println(input+" earned "+wordScore(input)+" points. Score: "+score+" points");
 			}
+		    }
 			else {
 				System.out.println("Invalid word. Try again.");
 			}
-            //n = hand.length();
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
 		}
 	    }
-	 } //else {
-			//System.out.println("End of hand. Total score: " + score + " points");
-		//}
+	 } 
 	}
 
 	// Plays a Scrabble game. Prompts the user to enter 'n' for playing a new hand, or 'e'
