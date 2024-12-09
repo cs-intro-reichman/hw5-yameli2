@@ -108,7 +108,7 @@ public class Scrabble {
 			//break;
 			if(input.equals("."))
 			{
-				System.out.println("End of hand. Total score: " + score + " points");
+				System.out.println("End of hand. Total score: " + score + " points ");
 				break;
 			}
 			else {
@@ -120,7 +120,7 @@ public class Scrabble {
 			}
 		    }
 			else {
-				System.out.println("Invalid word. Try again.");
+				System.out.println("No such word in the dictionary. Try again.");
 			}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
