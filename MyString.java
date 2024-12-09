@@ -120,16 +120,19 @@ public class MyString {
         String newstr=""; 
             for(int j=0;j<str1.length();j++){
                 char ch = str1.charAt(j);
+                if (str2.indexOf(ch) != -1) {
                 if(countChar(str1, ch)>countChar(str2, ch)){
                   if(newstr.indexOf(ch)==-1)
                     newstr+=ch;
-                    else if(countChar(newstr, ch)<(countChar(str1, ch)-1))
+                    else {if(countChar(newstr, ch)<(countChar(str1, ch)-1))
                     newstr+=ch;
-
-                } 
-            else if(str2.indexOf(ch)==-1)
+                }
+                }  
+            }
+            else //if(str2.indexOf(ch)==-1)
             newstr+=ch;
         }
+            
       
         return newstr;
     }
@@ -148,7 +151,7 @@ public class MyString {
          // Generate a random index between 0 and str.length()
          int randomIndex = (int) (Math.random() * (str.length() + 1));
          // Insert the character at the random index
-         String result = str.substring(0, randomIndex) + ch + str.substring(randomIndex,str.length()-1);
+         String result = str.substring(0, randomIndex) + ch + str.substring(randomIndex,str.length());
          return result;
     }    
 }
