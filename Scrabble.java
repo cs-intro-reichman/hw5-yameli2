@@ -109,11 +109,11 @@ public class Scrabble {
 			if(input.equals(".")){
 				System.out.println("End of hand. Total score: " + score + " points");
 			//	n=0;
-				return;
+				break;
 			}
 			else {if(isWordInDictionary(input)){
 			hand=MyString.remove(hand, input);
-			n=hand.length();
+			//n=hand.length();
 			score+=wordScore(input);
 			System.out.println(input+" earned "+wordScore(input)+" points. Score: "+score+" points");
 			}
@@ -147,7 +147,7 @@ public class Scrabble {
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
 			if (input.equals("e")) {
-				return;
+				break;
 			} 
 			else {if (input.equals("n")) {
 				playHand(createHand());;
