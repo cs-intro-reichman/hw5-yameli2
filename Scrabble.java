@@ -108,8 +108,10 @@ public class Scrabble {
 			//break;
 			if(input.equals("."))
 			{
+				
 				//System.out.println("End of hand. Total score: " + score + " points");
 				break;
+
 			}
 			else {
 			if(MyString.subsetOf(input, hand)){
@@ -124,11 +126,17 @@ public class Scrabble {
 				System.out.println("Invalid word. Try again.");
 			}
 		}
+		//if(input.equals("."))
+		//	{
+				//System.out.println("End of hand. Total score: " + score + " points");
+		//		break;
+		//	}
 	    }
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
 		 } 
-		 else{ System.out.println("End of hand. Total score: "+score+" points");
+		 else{ System.out.println("End of hand. Total score: "+score+" points"); 
+		 hand=MyString.remove(hand, hand);
 		}
 	}
 
